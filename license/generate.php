@@ -1,8 +1,7 @@
 <?php
-// Simulate "valid" API behavior, but return incorrect hash
 header('Content-Type: application/json');
+http_response_code(200);
 
-// Plugin expects this format
-echo json_encode(['code' => '00000000']); // fake hash
-http_response_code(200); // respond OK so it doesn't think server is dead
+// Always respond with a valid JSON and fake code
+echo json_encode(['code' => '00000000']); // this will fail verification in the plugin
 exit;
